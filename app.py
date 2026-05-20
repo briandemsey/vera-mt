@@ -230,39 +230,8 @@ def load_statewide_domain_data():
 # ============================================================================
 
 def check_password():
-    if 'authenticated' not in st.session_state:
-        st.session_state.authenticated = False
-    if st.session_state.authenticated:
-        return True
-
-    st.markdown(f"""
-    <div style="text-align: center; padding: 60px 20px;">
-        <h1 style="color: {MT_BLUE}; font-size: 3rem; margin-bottom: 10px;">VERA-MT</h1>
-        <p style="color: #666; font-size: 1.1rem; margin-bottom: 40px;">
-            Verification Engine for Results &amp; Accountability<br>Montana Implementation
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
-
-    col1, col2, col3 = st.columns([1, 2, 1])
-    with col2:
-        password = st.text_input("Enter access code:", type="password", key="pw")
-        if st.button("Access VERA-MT", use_container_width=True):
-            if password == APP_PASSWORD:
-                st.session_state.authenticated = True
-                st.rerun()
-            else:
-                st.error("Invalid access code")
-
-    st.markdown(f"""
-    <div style="text-align: center; margin-top: 60px; color: #999; font-size: 0.85rem;">
-        <p>VERA-MT analyzes ACCESS for ELLs domain data and MAST results across Montana districts.</p>
-        <p>~3,500 English Learners | ~400 districts | <strong>Indian Education for All (IEFA)</strong></p>
-        <p>Billings dedicated EL school (2024) | Tribal language heritage | MAST new 2025</p>
-        <p style="margin-top: 10px;">Contact: brian@h-edu.solutions</p>
-    </div>
-    """, unsafe_allow_html=True)
-    return False
+    st.session_state.authenticated = True
+    return True
 
 
 # ============================================================================
